@@ -1,0 +1,1402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetAddressals">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAddressalsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAddressalsResult" type="tns:ArrayOfWebAddressal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWebAddressal">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebAddressal" nillable="true" type="tns:WebAddressal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WebAddressal">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AddressalId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Salutation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attention" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateModified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateDeleted" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExternalSalesforceSalutation" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAddressalById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addressalId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAddressalByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAddressalByIdResult" type="tns:WebAddressal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessFunctions">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBusinessFunctionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBusinessFunctionsResult" type="tns:ArrayOfWebBusinessFunction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWebBusinessFunction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebBusinessFunction" nillable="true" type="tns:WebBusinessFunction" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WebBusinessFunction">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessFunctionId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessFunctionCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateModified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateDeleted" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBusinessFunctionById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BusinessFunctionId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessFunctionByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBusinessFunctionByIdResult" type="tns:WebBusinessFunction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactPersonsById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contactPersonIds" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetContactPersonsByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContactPersonsByIdResult" type="tns:ArrayOfWebContactPerson" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWebContactPerson">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebContactPerson" nillable="true" type="tns:WebContactPerson" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WebContactPerson">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ContactPersonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrganisationID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LanguageId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPrimaryContactPerson" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prefix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Initials" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Infix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Postfix" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddressalId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneGeneral" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneGeneralExtension" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhonePrivate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneWork" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneWorkExtension" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneMobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneCTI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneMobileCTI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhonePrivateCTI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneMobilePrivate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneMobilePrivateCTI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddressGeneral" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddressPrivate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddressWork" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateBirth" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrimaryBusinessFunctionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SecondaryBusinessFunctionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TertiaryBusinessFunctionId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FunctionDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonalNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Department" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressResidenceBuildingRoom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressResidenceStreetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressResidenceStreetNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressResidencePostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressResidenceCityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressResidenceState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressResidenceSection" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResidenceCountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressPostboxNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressPostboxPostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressPostboxCityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressPostboxState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressPostboxSection" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddressPostboxCountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FaxGeneral" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FaxPrivate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateModified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateDeleted" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExternalSalesforceID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SalesforceSyncIndicator" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetContactPersonsByOrganisationId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="organisationId" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactPersonsByOrganisationIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContactPersonsByOrganisationIdResult" type="tns:ArrayOfWebContactPerson" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCountries">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCountriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCountriesResult" type="tns:ArrayOfWebCountry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWebCountry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebCountry" nillable="true" type="tns:WebCountry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WebCountry">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AreaCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateModified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateDeleted" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCountryById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCountryByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCountryByIdResult" type="tns:WebCountry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLanguages">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLanguagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLanguagesResult" type="tns:ArrayOfWebLanguage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWebLanguage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebLanguage" nillable="true" type="tns:WebLanguage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WebLanguage">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LanguageId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LanguageDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateModified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateDeleted" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLanguageById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="languageId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLanguageByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLanguageByIdResult" type="tns:WebLanguage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBranches">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBranchesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBranchesResult" type="tns:ArrayOfWebBranch" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWebBranch">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebBranch" nillable="true" type="tns:WebBranch" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WebBranch">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateModified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateDeleted" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBranchById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="branchId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBranchByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBranchByIdResult" type="tns:WebBranch" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLegalForms">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLegalFormsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLegalFormsResult" type="tns:ArrayOfWebLegalForm" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWebLegalForm">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebLegalForm" nillable="true" type="tns:WebLegalForm" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WebLegalForm">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LegalFormId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LegalFormCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateModified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateDeleted" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLegalFormById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="legalFormId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLegalFormByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLegalFormByIdResult" type="tns:WebLegalForm" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRanges">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRangesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRangesResult" type="tns:ArrayOfWebRange" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWebRange">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebRange" nillable="true" type="tns:WebRange" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WebRange">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RangeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RangeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FromNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ToNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateModified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateDeleted" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRangeById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="rangeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRangeByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRangeByIdResult" type="tns:WebRange" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRelationTypes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRelationTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRelationTypesResult" type="tns:ArrayOfWebRelationType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWebRelationType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebRelationType" nillable="true" type="tns:WebRelationType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WebRelationType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RelationTypeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateModified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateDeleted" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRelationTypeById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="relationTypeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRelationTypeByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRelationTypeByIdResult" type="tns:WebRelationType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationsById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="organisationIds" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationsByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrganisationsByIdResult" type="tns:ArrayOfWebOrganisation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWebOrganisation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebOrganisation" nillable="true" type="tns:WebOrganisation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WebOrganisation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OrganisationId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LegalName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LegalFormId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressResidenceStreetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressResidenceStreetNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressResidencePostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressResidenceCityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressResidenceState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressResidenceSection" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddressResidenceCountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressBillingStreetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressBillingStreetNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressBillingPostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressBillingCityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressBillingState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressBillingSection" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddressBillingCountryId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LanguageID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="KvkNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KvkStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KvKRegistrationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneGeneral" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddressGeneral" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FaxGeneral" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebsiteURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressPostboxNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressPostboxPostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressPostboxCityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressPostboxState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressPostboxSection" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddressPostboxCountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VatNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SBICode1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SBICodeText1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SBICode2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SBICodeText2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SBICode3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SBICode3Text3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SearchName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HouseName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DebtorNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPrimaryOrganisation" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentOrganisationID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfEmployeesRangeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExternalSalesforceId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RelationTypeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateModified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateDeleted" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SalesforceSyncIndicator" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOrganisationByKvkNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kvkNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationByKvkNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrganisationByKvkNumberResult" type="tns:WebOrganisation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationsByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationsByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrganisationsByNameResult" type="tns:ArrayOfWebOrganisation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationsBySearchString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationsBySearchStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrganisationsBySearchStringResult" type="tns:ArrayOfWebOrganisation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationsByLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationsByLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrganisationsByLocationResult" type="tns:ArrayOfWebOrganisation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationsBySalesforceId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="salesForceIds" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOrganisationsBySalesforceIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrganisationsBySalesforceIdResult" type="tns:ArrayOfWebOrganisation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationKvkNumberById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="organisationId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationKvkNumberByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrganisationKvkNumberByIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationIdByKvkNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kvkNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationIdByKvkNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetOrganisationIdByKvkNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationsByParameters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="searchMode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kvkNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationsByParametersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrganisationsByParametersResult" type="tns:ArrayOfWebOrganisation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAddressalsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAddressals" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressalsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAddressalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressalByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAddressalById" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressalByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAddressalByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessFunctionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBusinessFunctions" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessFunctionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBusinessFunctionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessFunctionByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBusinessFunctionById" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessFunctionByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBusinessFunctionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContactPersonsByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContactPersonsById" />
+  </wsdl:message>
+  <wsdl:message name="GetContactPersonsByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContactPersonsByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContactPersonsByOrganisationIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContactPersonsByOrganisationId" />
+  </wsdl:message>
+  <wsdl:message name="GetContactPersonsByOrganisationIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContactPersonsByOrganisationIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCountries" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCountryById" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCountryByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLanguages" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLanguagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguageByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLanguageById" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguageByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLanguageByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBranchesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBranches" />
+  </wsdl:message>
+  <wsdl:message name="GetBranchesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBranchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBranchByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBranchById" />
+  </wsdl:message>
+  <wsdl:message name="GetBranchByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBranchByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLegalFormsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLegalForms" />
+  </wsdl:message>
+  <wsdl:message name="GetLegalFormsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLegalFormsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLegalFormByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLegalFormById" />
+  </wsdl:message>
+  <wsdl:message name="GetLegalFormByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLegalFormByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRangesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRanges" />
+  </wsdl:message>
+  <wsdl:message name="GetRangesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRangesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRangeByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRangeById" />
+  </wsdl:message>
+  <wsdl:message name="GetRangeByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRangeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRelationTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRelationTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetRelationTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRelationTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRelationTypeByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRelationTypeById" />
+  </wsdl:message>
+  <wsdl:message name="GetRelationTypeByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRelationTypeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrganisationsById" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrganisationsByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationByKvkNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrganisationByKvkNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationByKvkNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrganisationByKvkNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrganisationsByName" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrganisationsByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsBySearchStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrganisationsBySearchString" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsBySearchStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrganisationsBySearchStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsByLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrganisationsByLocation" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsByLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrganisationsByLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsBySalesforceIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrganisationsBySalesforceId" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsBySalesforceIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrganisationsBySalesforceIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationKvkNumberByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrganisationKvkNumberById" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationKvkNumberByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrganisationKvkNumberByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationIdByKvkNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrganisationIdByKvkNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationIdByKvkNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrganisationIdByKvkNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsByParametersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrganisationsByParameters" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsByParametersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrganisationsByParametersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AskaWebServiceSoap">
+    <wsdl:operation name="GetAddressals">
+      <wsdl:input message="tns:GetAddressalsSoapIn" />
+      <wsdl:output message="tns:GetAddressalsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressalById">
+      <wsdl:input message="tns:GetAddressalByIdSoapIn" />
+      <wsdl:output message="tns:GetAddressalByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessFunctions">
+      <wsdl:input message="tns:GetBusinessFunctionsSoapIn" />
+      <wsdl:output message="tns:GetBusinessFunctionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessFunctionById">
+      <wsdl:input message="tns:GetBusinessFunctionByIdSoapIn" />
+      <wsdl:output message="tns:GetBusinessFunctionByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactPersonsById">
+      <wsdl:input message="tns:GetContactPersonsByIdSoapIn" />
+      <wsdl:output message="tns:GetContactPersonsByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactPersonsByOrganisationId">
+      <wsdl:input message="tns:GetContactPersonsByOrganisationIdSoapIn" />
+      <wsdl:output message="tns:GetContactPersonsByOrganisationIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <wsdl:input message="tns:GetCountriesSoapIn" />
+      <wsdl:output message="tns:GetCountriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryById">
+      <wsdl:input message="tns:GetCountryByIdSoapIn" />
+      <wsdl:output message="tns:GetCountryByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguages">
+      <wsdl:input message="tns:GetLanguagesSoapIn" />
+      <wsdl:output message="tns:GetLanguagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguageById">
+      <wsdl:input message="tns:GetLanguageByIdSoapIn" />
+      <wsdl:output message="tns:GetLanguageByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBranches">
+      <wsdl:input message="tns:GetBranchesSoapIn" />
+      <wsdl:output message="tns:GetBranchesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBranchById">
+      <wsdl:input message="tns:GetBranchByIdSoapIn" />
+      <wsdl:output message="tns:GetBranchByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLegalForms">
+      <wsdl:input message="tns:GetLegalFormsSoapIn" />
+      <wsdl:output message="tns:GetLegalFormsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLegalFormById">
+      <wsdl:input message="tns:GetLegalFormByIdSoapIn" />
+      <wsdl:output message="tns:GetLegalFormByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRanges">
+      <wsdl:input message="tns:GetRangesSoapIn" />
+      <wsdl:output message="tns:GetRangesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRangeById">
+      <wsdl:input message="tns:GetRangeByIdSoapIn" />
+      <wsdl:output message="tns:GetRangeByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRelationTypes">
+      <wsdl:input message="tns:GetRelationTypesSoapIn" />
+      <wsdl:output message="tns:GetRelationTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRelationTypeById">
+      <wsdl:input message="tns:GetRelationTypeByIdSoapIn" />
+      <wsdl:output message="tns:GetRelationTypeByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsById">
+      <wsdl:input message="tns:GetOrganisationsByIdSoapIn" />
+      <wsdl:output message="tns:GetOrganisationsByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationByKvkNumber">
+      <wsdl:input message="tns:GetOrganisationByKvkNumberSoapIn" />
+      <wsdl:output message="tns:GetOrganisationByKvkNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByName">
+      <wsdl:input message="tns:GetOrganisationsByNameSoapIn" />
+      <wsdl:output message="tns:GetOrganisationsByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsBySearchString">
+      <wsdl:input message="tns:GetOrganisationsBySearchStringSoapIn" />
+      <wsdl:output message="tns:GetOrganisationsBySearchStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByLocation">
+      <wsdl:input message="tns:GetOrganisationsByLocationSoapIn" />
+      <wsdl:output message="tns:GetOrganisationsByLocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsBySalesforceId">
+      <wsdl:input message="tns:GetOrganisationsBySalesforceIdSoapIn" />
+      <wsdl:output message="tns:GetOrganisationsBySalesforceIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationKvkNumberById">
+      <wsdl:input message="tns:GetOrganisationKvkNumberByIdSoapIn" />
+      <wsdl:output message="tns:GetOrganisationKvkNumberByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationIdByKvkNumber">
+      <wsdl:input message="tns:GetOrganisationIdByKvkNumberSoapIn" />
+      <wsdl:output message="tns:GetOrganisationIdByKvkNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByParameters">
+      <wsdl:input message="tns:GetOrganisationsByParametersSoapIn" />
+      <wsdl:output message="tns:GetOrganisationsByParametersSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AskaWebServiceSoap" type="tns:AskaWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAddressals">
+      <soap:operation soapAction="http://tempuri.org/GetAddressals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressalById">
+      <soap:operation soapAction="http://tempuri.org/GetAddressalById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessFunctions">
+      <soap:operation soapAction="http://tempuri.org/GetBusinessFunctions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessFunctionById">
+      <soap:operation soapAction="http://tempuri.org/GetBusinessFunctionById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactPersonsById">
+      <soap:operation soapAction="http://tempuri.org/GetContactPersonsById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactPersonsByOrganisationId">
+      <soap:operation soapAction="http://tempuri.org/GetContactPersonsByOrganisationId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <soap:operation soapAction="http://tempuri.org/GetCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryById">
+      <soap:operation soapAction="http://tempuri.org/GetCountryById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguages">
+      <soap:operation soapAction="http://tempuri.org/GetLanguages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguageById">
+      <soap:operation soapAction="http://tempuri.org/GetLanguageById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBranches">
+      <soap:operation soapAction="http://tempuri.org/GetBranches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBranchById">
+      <soap:operation soapAction="http://tempuri.org/GetBranchById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLegalForms">
+      <soap:operation soapAction="http://tempuri.org/GetLegalForms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLegalFormById">
+      <soap:operation soapAction="http://tempuri.org/GetLegalFormById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRanges">
+      <soap:operation soapAction="http://tempuri.org/GetRanges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRangeById">
+      <soap:operation soapAction="http://tempuri.org/GetRangeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelationTypes">
+      <soap:operation soapAction="http://tempuri.org/GetRelationTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelationTypeById">
+      <soap:operation soapAction="http://tempuri.org/GetRelationTypeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsById">
+      <soap:operation soapAction="http://tempuri.org/GetOrganisationsById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationByKvkNumber">
+      <soap:operation soapAction="http://tempuri.org/GetOrganisationByKvkNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByName">
+      <soap:operation soapAction="http://tempuri.org/GetOrganisationsByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsBySearchString">
+      <soap:operation soapAction="http://tempuri.org/GetOrganisationsBySearchString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByLocation">
+      <soap:operation soapAction="http://tempuri.org/GetOrganisationsByLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsBySalesforceId">
+      <soap:operation soapAction="http://tempuri.org/GetOrganisationsBySalesforceId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationKvkNumberById">
+      <soap:operation soapAction="http://tempuri.org/GetOrganisationKvkNumberById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationIdByKvkNumber">
+      <soap:operation soapAction="http://tempuri.org/GetOrganisationIdByKvkNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByParameters">
+      <soap:operation soapAction="http://tempuri.org/GetOrganisationsByParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AskaWebServiceSoap12" type="tns:AskaWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAddressals">
+      <soap12:operation soapAction="http://tempuri.org/GetAddressals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressalById">
+      <soap12:operation soapAction="http://tempuri.org/GetAddressalById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessFunctions">
+      <soap12:operation soapAction="http://tempuri.org/GetBusinessFunctions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessFunctionById">
+      <soap12:operation soapAction="http://tempuri.org/GetBusinessFunctionById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactPersonsById">
+      <soap12:operation soapAction="http://tempuri.org/GetContactPersonsById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactPersonsByOrganisationId">
+      <soap12:operation soapAction="http://tempuri.org/GetContactPersonsByOrganisationId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <soap12:operation soapAction="http://tempuri.org/GetCountries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryById">
+      <soap12:operation soapAction="http://tempuri.org/GetCountryById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguages">
+      <soap12:operation soapAction="http://tempuri.org/GetLanguages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguageById">
+      <soap12:operation soapAction="http://tempuri.org/GetLanguageById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBranches">
+      <soap12:operation soapAction="http://tempuri.org/GetBranches" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBranchById">
+      <soap12:operation soapAction="http://tempuri.org/GetBranchById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLegalForms">
+      <soap12:operation soapAction="http://tempuri.org/GetLegalForms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLegalFormById">
+      <soap12:operation soapAction="http://tempuri.org/GetLegalFormById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRanges">
+      <soap12:operation soapAction="http://tempuri.org/GetRanges" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRangeById">
+      <soap12:operation soapAction="http://tempuri.org/GetRangeById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelationTypes">
+      <soap12:operation soapAction="http://tempuri.org/GetRelationTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelationTypeById">
+      <soap12:operation soapAction="http://tempuri.org/GetRelationTypeById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsById">
+      <soap12:operation soapAction="http://tempuri.org/GetOrganisationsById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationByKvkNumber">
+      <soap12:operation soapAction="http://tempuri.org/GetOrganisationByKvkNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByName">
+      <soap12:operation soapAction="http://tempuri.org/GetOrganisationsByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsBySearchString">
+      <soap12:operation soapAction="http://tempuri.org/GetOrganisationsBySearchString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByLocation">
+      <soap12:operation soapAction="http://tempuri.org/GetOrganisationsByLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsBySalesforceId">
+      <soap12:operation soapAction="http://tempuri.org/GetOrganisationsBySalesforceId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationKvkNumberById">
+      <soap12:operation soapAction="http://tempuri.org/GetOrganisationKvkNumberById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationIdByKvkNumber">
+      <soap12:operation soapAction="http://tempuri.org/GetOrganisationIdByKvkNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByParameters">
+      <soap12:operation soapAction="http://tempuri.org/GetOrganisationsByParameters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AskaWebService">
+    <wsdl:port name="AskaWebServiceSoap" binding="tns:AskaWebServiceSoap">
+      <soap:address location="http://aska.procit.com/askawebservices/askawebservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AskaWebServiceSoap12" binding="tns:AskaWebServiceSoap12">
+      <soap12:address location="http://aska.procit.com/askawebservices/askawebservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

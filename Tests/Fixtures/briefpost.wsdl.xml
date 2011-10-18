@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://briefpost/api/briefpost/1.0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="briefpost" targetNamespace="http://briefpost/api/briefpost/1.0/">
+  <portType name="briefpostPortType">
+    <operation name="Hello" parameterOrder="name dinges">
+      <documentation>Say Hello to the Briefpost API</documentation>
+      <input message="tns:HelloRequest"/>
+      <output message="tns:HelloResponse"/>
+    </operation>
+  </portType>
+  <binding name="briefpostBinding" type="tns:briefpostPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Hello">
+      <soap:operation soapAction="http://briefpost/api/briefpost/1.0/Hello"/>
+      <input>
+        <soap:body parts="name dinges" use="literal" namespace="http://briefpost/api/briefpost/1.0/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body parts="return" use="literal" namespace="http://briefpost/api/briefpost/1.0/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="briefpostService">
+    <port name="briefpostPort" binding="tns:briefpostBinding">
+      <soap:address location=""/>
+    </port>
+  </service>
+  <types>
+    <xsd:schema targetNamespace="http://briefpost/api/briefpost/1.0/">
+      <xsd:complexType name="Dinges">
+        <documentation>testje</documentation>
+        <xsd:all>
+          <xsd:element name="ding" type="xsd:string" nillable="true"/>
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="HelloRequest">
+    <part name="name" type="xsd:string"/>
+    <part name="dinges" type="tns:Dinges"/>
+  </message>
+  <message name="HelloResponse">
+    <part name="return" type="xsd:string"/>
+  </message>
+</definitions>

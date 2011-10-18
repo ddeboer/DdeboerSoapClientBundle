@@ -1,0 +1,20 @@
+<?php
+
+namespace {{ class_namespace }};
+
+/**
+ * {{ type.name }} proxy object
+ *
+ */
+class {{ type.name }}{% if type.extension %} extends {{type.extension}}{% endif %}
+
+{
+{% for element in type.elements %}
+    /**
+     * @var {{ element.phpType }}
+     */
+    public ${{ element.name }};
+    
+{% endfor %}
+
+}
