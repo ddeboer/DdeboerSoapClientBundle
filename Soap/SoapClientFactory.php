@@ -2,7 +2,7 @@
 
 namespace Ddeboer\SoapClientBundle\Soap;
 
-use BeSimple\SoapBundle\Converter\ConverterRepository;
+use BeSimple\SoapCommon\Converter\TypeConverterCollection;
 
 class SoapClientFactory
 {
@@ -12,16 +12,16 @@ class SoapClientFactory
     private $debug;
     private $username;
     private $password;
-    
+
     /**
      * Construct a PHP SOAP client
-     * 
+     *
      * @param string $wsdl      URI to the WSDL
      * @param array $classMap
      * @param ConverterRepository $converters
-     * @param type $debug 
+     * @param type $debug
      */
-    public function __construct($wsdl, array $classMap, ConverterRepository $converters, $debug = false)
+    public function __construct($wsdl, array $classMap, TypeConverterCollection $converters, $debug = false)
     {
         $this->wsdl = $wsdl;
         $this->classMap = $classMap;
@@ -49,7 +49,7 @@ class SoapClientFactory
      */
     public function create()
     {
-        $options = array(                
+        $options = array(
             'classmap'   => $this->classMap,
             'typemap'    => $this->createTypeMap(),
             'features'   => SOAP_SINGLE_ELEMENT_ARRAYS,
@@ -61,35 +61,32 @@ class SoapClientFactory
             $options['login'] = $this->username;
             $options['password'] = $this->password;
         }
-        
+
         return new \SoapClient($this->wsdl, $options);
     }
-    
+
     /**
      * Create SOAP type map
-     * 
-     * @return array 
+     *
+     * @return array
      */
     private function createTypeMap()
     {
         $typeMap = array();
-        
-        $request = new \BeSimple\SoapBundle\Soap\SoapRequest();
-        $response = null;
 
-        foreach($this->converters->getTypeConverters() as $typeConverter) {
+        foreach($this->converters->all() as $typeConverter) {
             $typeMap[] = array(
                 'type_name' => $typeConverter->getTypeName(),
                 'type_ns'   => $typeConverter->getTypeNamespace(),
-                'from_xml'  => function($input) use ($request, $typeConverter) {
-                    return $typeConverter->convertXmlToPhp($request, $input);
+                'from_xml'  => function($input) use ($typeConverter) {
+                    return $typeConverter->convertXmlToPhp($input);
                 },
-                'to_xml'    => function($input) use ($response, $typeConverter) {
-                    return $typeConverter->convertPhpToXml($response, $input);
+                'to_xml'    => function($input) use ($typeConverter) {
+                    return $typeConverter->convertPhpToXml($input);
                 },
             );
         }
-        
+
         return $typeMap;
     }
 }
